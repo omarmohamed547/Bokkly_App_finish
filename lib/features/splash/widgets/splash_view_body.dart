@@ -18,7 +18,11 @@ class _splashViewBodyState extends State<splashViewBody>
     super.initState();
 
     initSlidingAnimation();
-    Future.delayed(Duration(seconds: 4), () {
+    navigateToHome();
+  }
+
+  void navigateToHome() {
+    Future.delayed(Duration(seconds: 3), () {
       Get.to(homeView(),
           transition: Transition.fade, duration: Duration(seconds: 2));
     });
