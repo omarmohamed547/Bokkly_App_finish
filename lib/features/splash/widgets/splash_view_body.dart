@@ -1,5 +1,7 @@
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/home/data/presntation/view_models/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class splashViewBody extends StatefulWidget {
   @override
@@ -15,6 +17,14 @@ class _splashViewBodyState extends State<splashViewBody>
   void initState() {
     super.initState();
 
+    initSlidingAnimation();
+    Future.delayed(Duration(seconds: 4), () {
+      Get.to(homeView(),
+          transition: Transition.fade, duration: Duration(seconds: 2));
+    });
+  }
+
+  void initSlidingAnimation() {
     animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
 
@@ -27,6 +37,12 @@ class _splashViewBodyState extends State<splashViewBody>
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -36,17 +52,31 @@ class _splashViewBodyState extends State<splashViewBody>
         SizedBox(
           height: 4,
         ),
-        AnimatedBuilder(
-            animation: _textAnimation,
-            builder: (context, _) {
-              return SlideTransition(
-                  position: _textAnimation,
-                  child: Text(
-                    "Read Freee Books",
-                    textAlign: TextAlign.center,
-                  ));
-            })
+        slidingText(textAnimation: _textAnimation)
       ],
     );
+  }
+}
+
+class slidingText extends StatelessWidget {
+  const slidingText({
+    super.key,
+    required Animation<Offset> textAnimation,
+  }) : _textAnimation = textAnimation;
+
+  final Animation<Offset> _textAnimation;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+        animation: _textAnimation,
+        builder: (context, _) {
+          return SlideTransition(
+              position: _textAnimation,
+              child: Text(
+                "Read Freee Books",
+                textAlign: TextAlign.center,
+              ));
+        });
   }
 }
