@@ -1,10 +1,12 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/widgets/best_saller_list_item.dart';
 import 'package:bookly_app/features/home/data/widgets/customApp_bar.dart';
 import 'package:bookly_app/features/home/data/widgets/featured_list_view.dart';
 import 'package:bookly_app/features/home/data/widgets/list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class homeviewbody extends StatelessWidget {
   @override
@@ -17,7 +19,7 @@ class homeviewbody extends StatelessWidget {
           child: CustomAppBar(),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 12),
           child: featuredlistview(),
         ),
         SizedBox(
@@ -27,9 +29,13 @@ class homeviewbody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
             "Best Saller",
-            style: styles.titlemedium,
+            style: styles.titlestyle18,
           ),
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: bestSallerListItem(),
+        ),
       ],
     );
   }
