@@ -1,8 +1,8 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class listviewitem extends StatelessWidget {
-  const listviewitem({
+class listviewimage extends StatelessWidget {
+  const listviewimage({
     super.key,
   });
 
