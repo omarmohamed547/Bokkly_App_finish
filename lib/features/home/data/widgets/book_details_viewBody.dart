@@ -1,8 +1,10 @@
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/data/widgets/AppBar_Book_details.dart';
 import 'package:bookly_app/features/home/data/widgets/featured_list_view.dart';
 import 'package:bookly_app/features/home/data/widgets/list_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class bookdetailsBody extends StatelessWidget {
   @override
@@ -20,26 +22,20 @@ class bookdetailsBody extends StatelessWidget {
               child: listviewimage(),
             ),
             SizedBox(height: 20),
-            Text(
-              'The Jungle Book',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            Text(
-              'Rudyard Kipling',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[400],
-              ),
-            ),
+            Text('The Jungle Book',
+                style:
+                    styles.titlestyle30.copyWith(fontWeight: FontWeight.bold)),
+            Text('Rudyard Kipling',
+                style: styles.titlestyle18.copyWith(
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey[400],
+                )),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star, color: Colors.yellow, size: 24),
+                Icon(FontAwesomeIcons.solidStar,
+                    color: Colors.yellow, size: 16),
                 SizedBox(width: 4),
                 Text(
                   '4.8',
