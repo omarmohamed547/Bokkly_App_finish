@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/core/utils/custom_button.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/data/widgets/AppBar_Book_details.dart';
 import 'package:bookly_app/features/home/data/widgets/featured_list_view.dart';
@@ -46,71 +47,36 @@ class bookdetailsBody extends StatelessWidget {
                   '(2390)',
                   style: TextStyle(fontSize: 18, color: Colors.grey[400]),
                 ),
-              ],
+              ], //19.99€
             ),
             SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '19.99€',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.orangeAccent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: customButton(
+                      text: "19.99€",
+                      style: styles.titlestyle18.copyWith(color: Colors.black),
+                      radius:
+                          BorderRadius.horizontal(left: Radius.circular(16)),
+                      color: Colors.white,
                     ),
                   ),
-                  child: Text('Free preview'),
-                ),
-              ],
-            ),
-            SizedBox(height: 30),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'You can also like',
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              height: 120,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _buildBookRecommendation('https://example.com/book1.jpg'),
-                  _buildBookRecommendation('https://example.com/book2.jpg'),
-                  _buildBookRecommendation('https://example.com/book3.jpg'),
-                  _buildBookRecommendation('https://example.com/book4.jpg'),
+                  Expanded(
+                    child: customButton(
+                      text: "Free preview",
+                      style: styles.titlestyle18,
+                      radius:
+                          BorderRadius.horizontal(right: Radius.circular(16)),
+                      color: Color(0xffef8262),
+                    ),
+                  ),
                 ],
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBookRecommendation(String imageUrl) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
-      child: Container(
-        width: 80,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          image: DecorationImage(
-            image: NetworkImage(imageUrl),
-            fit: BoxFit.cover,
-          ),
         ),
       ),
     );
