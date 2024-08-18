@@ -76,6 +76,17 @@ class bookdetailsBody extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "you can also like ",
+                style:
+                    styles.titlestyle16.copyWith(fontWeight: FontWeight.w600),
+              ),
+            )
           ],
         ),
       ),
