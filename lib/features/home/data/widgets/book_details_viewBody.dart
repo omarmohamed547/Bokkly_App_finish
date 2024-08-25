@@ -76,8 +76,10 @@ class bookdetailsBody extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 30,
+            Expanded(
+              child: SizedBox(
+                height: 30,
+              ),
             ),
             Align(
               alignment: Alignment.centerLeft,
@@ -86,10 +88,33 @@ class bookdetailsBody extends StatelessWidget {
                 style:
                     styles.titlestyle16.copyWith(fontWeight: FontWeight.w600),
               ),
-            )
+            ),
+            similarlBooklistview()
           ],
         ),
       ),
+    );
+  }
+}
+
+class similarlBooklistview extends StatelessWidget {
+  const similarlBooklistview({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.15,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: listviewimage(),
+            );
+          }),
     );
   }
 }
