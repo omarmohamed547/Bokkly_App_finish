@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/data/presntation/view_models/views/home_view.dart';
+import 'package:bookly_app/features/home/data/presntation/manager/views/home_view.dart';
 import 'package:bookly_app/features/home/data/widgets/book_deatails_view.dart';
 import 'package:bookly_app/features/search/presentaion/views/search_view.dart';
 import 'package:bookly_app/features/splash/widgets/splash_view.dart';

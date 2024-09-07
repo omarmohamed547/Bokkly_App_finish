@@ -2,7 +2,9 @@ import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class listviewimage extends StatelessWidget {
-  const listviewimage({
+  final String imageurl;
+  listviewimage({
+    required this.imageurl,
     super.key,
   });
 
@@ -14,7 +16,7 @@ class listviewimage extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.green,
             image: DecorationImage(
-                fit: BoxFit.fill, image: AssetImage(assetData.items)),
+                fit: BoxFit.fill, image: NetworkImage(imageurl)),
             borderRadius: BorderRadius.circular(16)),
       ),
     );
