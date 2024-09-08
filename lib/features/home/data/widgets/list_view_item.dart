@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class listviewimage extends StatelessWidget {
   final String imageurl;
@@ -10,14 +11,17 @@ class listviewimage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.8 / 4,
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.green,
-            image: DecorationImage(
-                fit: BoxFit.fill, image: NetworkImage(imageurl)),
-            borderRadius: BorderRadius.circular(16)),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: AspectRatio(
+        aspectRatio: 2.8 / 4,
+        child: CachedNetworkImage(
+          imageUrl: imageurl,
+          fit: BoxFit.cover,
+          errorWidget: (context, url, error) {
+            return Icon(Icons.error);
+          },
+        ),
       ),
     );
   }
