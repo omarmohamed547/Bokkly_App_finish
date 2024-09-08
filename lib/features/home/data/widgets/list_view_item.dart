@@ -11,6 +11,20 @@ class listviewimage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return custombookimage(imageurl: imageurl);
+  }
+}
+
+class custombookimage extends StatelessWidget {
+  const custombookimage({
+    super.key,
+    required this.imageurl,
+  });
+
+  final String imageurl;
+
+  @override
+  Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: AspectRatio(

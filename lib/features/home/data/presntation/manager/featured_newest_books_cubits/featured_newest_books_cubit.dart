@@ -10,7 +10,7 @@ class featurednewestBooksCubit extends Cubit<featuredNewestBooksStates> {
   featurednewestBooksCubit(this.homeRepo) : super(featuredNewestBooksIntial());
   final HomeRepo homeRepo;
 
-  Future<void> fetchfeaturedBooks() async {
+  Future<void> fetchfeaturedNewestBooks() async {
     emit(featuredNewestBooksLoading());
     var result = await homeRepo.fetchFeatureBooks();
 

@@ -15,7 +15,7 @@ class searchlistviewVertical extends StatelessWidget {
           itemCount: 10,
           scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
-            return bestSallerListItem();
+            return Text("data");
           }),
     );
   }
