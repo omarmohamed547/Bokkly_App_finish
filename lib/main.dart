@@ -14,6 +14,7 @@ import 'package:go_router/go_router.dart';
 import 'package:bookly_app/features/home/data/presntation/manager/featuerd_books_cubits/featuerd_books_state.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
   runApp(BooklyApp());
 }
