@@ -1,10 +1,13 @@
+import 'package:bookly_app/core/utils/appp_router.dart';
 import 'package:bookly_app/core/utils/widgets/CustomError_widget.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/data/presntation/manager/featured_newest_books_cubits/featured_newest_books_cubit.dart';
 import 'package:bookly_app/features/home/data/presntation/manager/featured_similar_books_cubits/featured_similar_books_cubit.dart';
 import 'package:bookly_app/features/home/data/presntation/manager/featured_similar_books_cubits/featured_similar_books_states.dart';
 import 'package:bookly_app/features/home/data/widgets/list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class similarlBooklistview extends StatelessWidget {
   const similarlBooklistview({
@@ -20,13 +23,19 @@ class similarlBooklistview extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.15,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount: state.books.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 12),
-                    child: listviewimage(
-                      imageurl:
-                          "https://media.istockphoto.com/id/1961324209/photo/a-concept-where-various-creative-thoughts-are-formed-within-a-light-bulb-3d-rendering.jpg?s=2048x2048&w=is&k=20&c=h1gT6ViXDG8na2sviuWPYBLc3ecX6dAPq-CP-BmzrDE=",
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(appRouter.kbookdetails,
+                            extra: state.books[index]);
+                      },
+                      child: listviewimage(
+                        imageurl:
+                            state.books[index].volumeInfo.imageLinks.thumbnail,
+                      ),
                     ),
                   );
                 }),

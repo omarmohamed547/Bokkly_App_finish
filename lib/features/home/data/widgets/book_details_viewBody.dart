@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/custom_button.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/data/widgets/AppBar_Book_details.dart';
 import 'package:bookly_app/features/home/data/widgets/BookdetailsSection.dart';
 import 'package:bookly_app/features/home/data/widgets/Similar_Books_Section.dart';
@@ -11,6 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class bookdetailsBody extends StatelessWidget {
+  final BookModel bookModel;
+
+  const bookdetailsBody({super.key, required this.bookModel});
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -23,13 +27,17 @@ class bookdetailsBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AppBarBookdetails(),
-                BookDetailsSection(),
+                BookDetailsSection(
+                  bookModel: bookModel,
+                ),
                 Expanded(
                   child: SizedBox(
                     height: 30,
                   ),
                 ),
-                SimilarBookSection(),
+                SimilarBookSection(
+                  bookModel: bookModel,
+                ),
                 SizedBox(
                   height: 40,
                 )
